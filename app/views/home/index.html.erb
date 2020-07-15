@@ -1,0 +1,36 @@
+<div>
+  <h1>Session Logic</h1>
+  <% if signed_in? %>
+    <p>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    </p>
+
+    <p>
+      <%= link_to 'Sign In', new_user_session_path %>
+    </p>
+  <% end %>
+
+  <br>
+  <hr>
+
+  <% if signed_in? %>
+    <h1>Check Token Logic</h1>
+    <p>
+      <%= link_to 'Check Token', check_token_path %>
+    </p>
+
+    <br>
+    <hr>
+
+    <h1>
+      Intercomponent Link
+    </h1>
+    <p>
+      <%= intercomponent_link('3005 port app', 'http://localhost:3005/check-token') %>
+    </p>
+  <% end %>
+</div>
