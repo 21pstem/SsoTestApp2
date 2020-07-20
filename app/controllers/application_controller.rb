@@ -57,4 +57,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     check_token_path
   end
+
+  private
+
+  def sso_headers(token)
+    { 'Authorization' => token, 'Content-Type' => 'application/json' }
+  end
 end
